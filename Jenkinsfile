@@ -14,9 +14,9 @@ node {
 
             /*docker.withRegistry('https://hub.docker.com', 'dockerhub') {
                 sh 'docker build -t ejirocecil/jenkinsminikube:${env.BUILD_NUMBER}'
-                  Push the container to the custom Registry */
+                  Push the container to the custom Registry 
                 
-            }
+            }*/
             echo 'Pushed to Dockerhub'
         }
 
