@@ -8,9 +8,9 @@ node {
         stage ('Push to Docker hub') {
 
             docker.withRegistry('https://hub.docker.com', 'dockerhub') {
-                def customImage = docker.build("ejirocecil/jenkinsminikube:${env.BUILD_NUMBER}")
+                sh 'docker build -t ejirocecil/jenkinsminikube:${env.BUILD_NUMBER}'
                 /* Push the container to the custom Registry */
-                customImage.push()
+                
             }
             echo 'Pushed to Dockerhub'
         }
