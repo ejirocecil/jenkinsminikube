@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app:  jenkinsminikube-app
+  name: jenkinsminikube-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkinsminikube-app
+  template:
+    metadata:
+      labels:
+        app: jenkinsminikube-app
+    spec:
+      containers:
+      - image: ejirocecil/jenkinsminikube:latest
+        name: jenkinsminikube
+        ports:
+        - containerPort: 5000
