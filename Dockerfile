@@ -5,7 +5,7 @@ MAINTAINER Ejiroghene Agarin "ejirocecil@gmail.com"
 RUN apt-get update -y && \
     apt-get install -y python3-pip python3-dev
 
-COPY .src/ /
+COPY . /
 
 WORKDIR /
 
