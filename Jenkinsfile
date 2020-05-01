@@ -25,13 +25,13 @@ node {
 
         stage ('test kubectl') {
             sh("sed -i.bak 's|ejirocecil/jenkinsminikube:latest|ejirocecil/jenkinsminikube:${env.BUILD_NUMBER}|' ./kubernetes/app.yaml")
-            /*script {
+            script {
                 kubernetesDeploy(configs: "kubernetes/app.yaml", kubeconfigId: "mykubeconfig")
-            }*/
-
-            withKubeConfig([credentialsId: 'jenkins-deployer-credentials', serverUrl: 'https://192.168.39.144:8443']) {
-              sh 'kubectl apply -f kubernetes/app.yaml'
             }
+
+            /*withKubeConfig([credentialsId: 'jenkins-deployer-credentials', serverUrl: 'https://192.168.39.144:8443']) {
+              sh 'kubectl apply -f kubernetes/app.yaml'
+            }*/
 
             echo 'Kubectl worked'
         }
