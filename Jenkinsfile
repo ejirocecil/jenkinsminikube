@@ -15,12 +15,14 @@ node {
         
         stage ('Push to Docker hub') {
 
+            sh "cd src/"
             docker.withRegistry('', 'dockerhub') {
                 def customImage = docker.build("ejirocecil/jenkinsminikube:${env.BUILD_NUMBER}")
                 /* Push the container to the custom Registry */ 
                 customImage.push()
             }
             echo 'Pushed to Dckerhub'
+            sh "cd .."
         }
 
         stage ('test kubectl') {
