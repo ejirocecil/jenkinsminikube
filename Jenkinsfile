@@ -24,7 +24,10 @@ node {
         }
 
         stage ('test kubectl') {
-            sh "kubectl get pods --context minikube"
+            sh("sed -i.bak 's|ejirocecil/jenkinsminikube:latest|ejirocecil/jenkinsminikube:${env.BUILD_NUMBER}|' ./kubernetes/app.yaml")
+            script {
+                kubernetesDeploy(configs: "kubernetes/app.yaml", kubeconfigId: "mykubeconfig")
+            }
             echo 'Kubectl worked'
         }
 
