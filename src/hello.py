@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "<h1 style='color:purple'>VGG to the world!</h1>"
+    return "<h1 style='color:purple'>VGG to the world! Hallelujah!</h1>"
 
 @app.route('/<page_name>')
 def other_page(page_name):
