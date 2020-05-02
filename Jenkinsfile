@@ -9,7 +9,7 @@ podTemplate(label: label, containers: [
             checkout scm
         }
 
-    }
+    
     stage('Create Docker images') {
       withCredentials([[$class: 'UsernamePasswordMultiBinding',
           credentialsId: 'dockerhub',
