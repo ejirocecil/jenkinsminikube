@@ -30,7 +30,6 @@ volumes: [
     }
     stage('Run kubectl') {
       container('kubectl') {
-        sh "kubectl config use-context minikube"
         sh "kubectl get pods"
       }
     }
